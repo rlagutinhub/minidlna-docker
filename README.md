@@ -1,4 +1,4 @@
-# minidlna-docker (formerly known as ReadyMedia)
+# minidlna-docker (aka ReadyDLNA or ReadyMedia)
 My DLNA Server
 
 ```bash

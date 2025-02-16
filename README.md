@@ -29,7 +29,6 @@ serial=12345678
 model_number=1
 EOF
 cat << EOF > docker-compose.yml
-version: '3.8'
 services:
   minidlna:
     build: . # image: minidlna:latest

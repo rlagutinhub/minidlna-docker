@@ -1,10 +1,7 @@
-FROM alpine:3.21.3
+FROM alpine:3
 LABEL MAINTAINER "Roman Lagutin <r@lag.net.ru>"
-RUN apk add --no-cache \
-    minidlna \
-    ffmpeg \
-    && mkdir -p /var/cache/minidlna /media
+RUN apk add --no-cache minidlna
 COPY minidlna.conf /etc/minidlna.conf
-#VOLUME /media
+#VOLUME /minidlna
 EXPOSE 1900/udp 8200/tcp
 CMD ["minidlnad", "-d"]

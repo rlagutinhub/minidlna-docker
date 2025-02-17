@@ -1,4 +1,5 @@
 # minidlna (aka ReadyDLNA or ReadyMedia)
+> Tested for VLC for Android and ViMu Media Player for TV
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << EOF > Dockerfile
@@ -27,7 +28,8 @@ EOF
 cat << EOF > docker-compose.yml
 services:
   minidlna:
-    build: . # image: minidlna:latest
+    image: minidlna:latest
+    build: .
     container_name: minidlna
     network_mode: host
     restart: unless-stopped
@@ -39,6 +41,5 @@ services:
 EOF
 # docker build -t minidlna:latest .
 docker compose up -d
-docker compose down
 ```
 https://sourceforge.net/projects/minidlna/

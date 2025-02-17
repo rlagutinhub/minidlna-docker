@@ -1,4 +1,4 @@
-# minidlna-docker (aka ReadyDLNA or ReadyMedia)
+# minidlna (aka ReadyDLNA or ReadyMedia)
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << EOF > Dockerfile

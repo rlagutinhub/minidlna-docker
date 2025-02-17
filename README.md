@@ -40,6 +40,6 @@ services:
       # - MINIDLNA_FRIENDLY_NAME=minidlna
 EOF
 # docker build -t minidlna:latest .
-docker compose up -d
+docker compose up -d --pull never
 ```
 https://sourceforge.net/projects/minidlna/

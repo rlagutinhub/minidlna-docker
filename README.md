@@ -40,7 +40,6 @@ services:
       # - MINIDLNA_MEDIA_DIR=/minidlna
       # - MINIDLNA_FRIENDLY_NAME=minidlna
 EOF
-# docker build -t minidlna:latest .
 docker compose up -d
 ```
 https://sourceforge.net/projects/minidlna/

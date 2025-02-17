@@ -1,6 +1,7 @@
 services:
   minidlna:
-    build: . # image: minidlna:latest
+    image: minidlna:latest
+    build: .
     container_name: minidlna
     network_mode: host
     restart: unless-stopped

@@ -2,6 +2,7 @@ services:
   minidlna:
     image: minidlna:latest
     build: .
+    pull_policy: never
     container_name: minidlna
     network_mode: host
     restart: unless-stopped

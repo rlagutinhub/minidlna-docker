@@ -8,4 +8,4 @@ services:
       - ~/Загрузки:/minidlna
     # environment:
       # - MINIDLNA_MEDIA_DIR=/minidlna
-      # - MINIDLNA_FRIENDLY_NAME=DLNA Server
+      # - MINIDLNA_FRIENDLY_NAME=minidlna

@@ -30,6 +30,7 @@ services:
   minidlna:
     image: minidlna:latest
     build: .
+    pull_policy: never
     container_name: minidlna
     network_mode: host
     restart: unless-stopped
@@ -40,6 +41,6 @@ services:
       # - MINIDLNA_FRIENDLY_NAME=minidlna
 EOF
 # docker build -t minidlna:latest .
-docker compose up -d --pull never
+docker compose up -d
 ```
 https://sourceforge.net/projects/minidlna/

@@ -41,5 +41,7 @@ services:
       # - MINIDLNA_FRIENDLY_NAME=minidlna
 EOF
 docker compose up -d
+# docker compose down
+# docker system prune -a
 ```
 https://sourceforge.net/projects/minidlna/

@@ -4,7 +4,7 @@
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << EOF > Dockerfile
 FROM alpine:3
-LABEL MAINTAINER "Roman Lagutin <r@lag.net.ru>"
+LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
 RUN apk add --no-cache minidlna
 COPY minidlna.conf /etc/minidlna.conf
 VOLUME /minidlna

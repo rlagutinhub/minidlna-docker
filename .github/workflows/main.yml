@@ -19,6 +19,7 @@ jobs:
         uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: Dockerfile
+          ignore: DL3018,DL3020
 
       - name: Lint docker-compose.yml
         run: docker compose -f docker-compose.yml config

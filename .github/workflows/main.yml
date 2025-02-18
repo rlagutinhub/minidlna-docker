@@ -21,4 +21,4 @@ jobs:
           dockerfile: Dockerfile
 
       - name: Lint docker-compose.yml
-        uses: docker compose -f docker-compose.yml config
+        run: docker compose -f docker-compose.yml config

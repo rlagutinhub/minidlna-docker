@@ -21,4 +21,4 @@ jobs:
           dockerfile: Dockerfile
 
       - name: Lint docker-compose.yml
-        uses: builat/docker-compose-linter-action@v1.0.0
+        uses: docker compose -f docker-compose.yml config

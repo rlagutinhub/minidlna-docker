@@ -14,7 +14,7 @@ EOF
 cat << EOF > minidlna.conf
 port=8200
 media_dir=/media
-friendly_name=dlna
+friendly_name=media
 album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
 inotify=yes
 enable_tivo=no
@@ -35,10 +35,10 @@ services:
     network_mode: host
     restart: unless-stopped
     volumes:
-      - ~/Загрузки:/minidlna
+      - ~/Загрузки:/media
     # environment:
       # - MINIDLNA_MEDIA_DIR=/media
-      # - MINIDLNA_FRIENDLY_NAME=dlna
+      # - MINIDLNA_FRIENDLY_NAME=media
 EOF
 docker compose up -d
 # docker compose down

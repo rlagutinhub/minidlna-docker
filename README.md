@@ -6,15 +6,15 @@ cat << EOF > Dockerfile
 FROM alpine:3
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
 RUN apk add --no-cache minidlna
-ADD minidlna.conf /etc/minidlna.conf
-VOLUME /minidlna
+COPY minidlna.conf /etc/minidlna.conf
+VOLUME /media
 EXPOSE 1900/udp 8200/tcp
 CMD ["minidlnad", "-d"]
 EOF
 cat << EOF > minidlna.conf
 port=8200
-media_dir=/minidlna
-friendly_name=minidlna
+media_dir=/media
+friendly_name=dlna
 album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
 inotify=yes
 enable_tivo=no
@@ -37,8 +37,8 @@ services:
     volumes:
       - ~/Загрузки:/minidlna
     # environment:
-      # - MINIDLNA_MEDIA_DIR=/minidlna
-      # - MINIDLNA_FRIENDLY_NAME=minidlna
+      # - MINIDLNA_MEDIA_DIR=/media
+      # - MINIDLNA_FRIENDLY_NAME=dlna
 EOF
 docker compose up -d
 # docker compose down

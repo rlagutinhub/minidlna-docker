@@ -47,7 +47,7 @@ services:
       # - MINIDLNA_MEDIA_DIR=/media
       # - MINIDLNA_FRIENDLY_NAME=Медиа
     healthcheck:
-      test: ["CMD", "curl", "-sf", "127.0.0.1:8200"]
+      test: ["CMD", "curl", "-f", "127.0.0.1:8200"]
       interval: 30s
       timeout: 10s
       retries: 3

@@ -20,6 +20,6 @@ services:
     container_name: minidlna
     volumes:
       - ~/Загрузки:/media
-    # environment:
-      # - MINIDLNA_MEDIA_DIR=/media
-      # - MINIDLNA_FRIENDLY_NAME=Медиа
+    environment:
+      - MINIDLNA_MEDIA_DIR=/media
+      - MINIDLNA_FRIENDLY_NAME=Медиа

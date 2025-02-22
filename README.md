@@ -29,29 +29,31 @@ model_number=1
 root_container=B
 EOF
 cat << EOF > docker-compose.yml
+x-minidlna-common: &minidlna-common
+  image: minidlna:latest
+  build:
+    context: .
+    args:
+      ALPINE_TAG: "3.21.3"
+      MINIDLNA_VER: "1.3.3-r1"
+  pull_policy: never
+  network_mode: host
+  restart: always
+  healthcheck:
+    test: ["CMD", "curl", "-f", "127.0.0.1:8200"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 10s
 services:
   minidlna:
-    image: minidlna:latest
-    build:
-      context: .
-      args:
-        ALPINE_TAG: "3.21.3"
-        MINIDLNA_VER: "1.3.3-r1"
-    pull_policy: never
+    <<: *minidlna-common
     container_name: minidlna
-    network_mode: host
-    restart: always
     volumes:
       - ~/Загрузки:/media
     # environment:
       # - MINIDLNA_MEDIA_DIR=/media
       # - MINIDLNA_FRIENDLY_NAME=Медиа
-    healthcheck:
-      test: ["CMD", "curl", "-f", "127.0.0.1:8200"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
 EOF
 docker compose up -d
 # docker compose down

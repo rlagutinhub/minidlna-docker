@@ -7,7 +7,7 @@ ARG ALPINE_TAG=latest
 FROM alpine:${ALPINE_TAG}
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
 ARG MINIDLNA_VER=1.3.3-r1
-RUN apk add --no-cache tzdata minidlna=${MINIDLNA_VER}
+RUN apk add --no-cache tzdata curl minidlna=${MINIDLNA_VER}
 ENV TZ=Europe/Moscow
 COPY minidlna.conf /etc/minidlna.conf
 VOLUME /media
@@ -46,6 +46,12 @@ services:
     # environment:
       # - MINIDLNA_MEDIA_DIR=/media
       # - MINIDLNA_FRIENDLY_NAME=Медиа
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8200"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
 EOF
 docker compose up -d
 # docker compose down

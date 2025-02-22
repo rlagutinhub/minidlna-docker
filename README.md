@@ -2,7 +2,7 @@
 > Tested for VLC for Android and ViMu Media Player for TV
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
-cat << EOF > Dockerfile
+cat << 'EOF' > Dockerfile
 ARG ALPINE_TAG=latest
 FROM alpine:${ALPINE_TAG}
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"

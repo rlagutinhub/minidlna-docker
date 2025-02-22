@@ -3,9 +3,12 @@
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << EOF > Dockerfile
-FROM alpine:3
+ARG ALPINE_TAG=latest
+FROM alpine:${ALPINE_TAG}
+ARG MINIDLNA_VER=1.3.3-r1
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
-RUN apk add --no-cache minidlna
+RUN apk add --no-cache tzdata minidlna=${MINIDLNA_VER}
+ENV TZ=Europe/Moscow
 COPY minidlna.conf /etc/minidlna.conf
 VOLUME /media
 EXPOSE 1900/udp 8200/tcp
@@ -29,7 +32,11 @@ cat << EOF > docker-compose.yml
 services:
   minidlna:
     image: minidlna:latest
-    build: .
+    build:
+      context: .
+      args:
+        ALPINE_TAG: "3"
+        MINIDLNA_VER: "1.3.3-r1"
     pull_policy: never
     container_name: minidlna
     network_mode: host

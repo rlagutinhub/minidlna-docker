@@ -16,8 +16,8 @@ CMD ["minidlnad", "-d"]
 EOF
 cat << EOF > minidlna.conf
 port=8200
-media_dir=/media
-friendly_name=Медиа
+media_dir=/opt
+friendly_name=My DLNA Server
 album_art_names=Cover.jpg/cover.jpg/AlbumArtSmall.jpg/albumartsmall.jpg/AlbumArt.jpg/albumart.jpg/Album.jpg/album.jpg/Folder.jpg/folder.jpg/Thumb.jpg/thumb.jpg
 inotify=yes
 enable_tivo=no
@@ -51,9 +51,9 @@ services:
     container_name: minidlna
     volumes:
       - ~/Загрузки:/media
-    # environment:
-      # - MINIDLNA_MEDIA_DIR=/media
-      # - MINIDLNA_FRIENDLY_NAME=Медиа
+    environment:
+      - MINIDLNA_MEDIA_DIR=/media
+      - MINIDLNA_FRIENDLY_NAME=Медиа
 EOF
 docker compose up -d
 # docker compose down

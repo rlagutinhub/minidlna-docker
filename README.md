@@ -47,7 +47,7 @@ services:
       # - MINIDLNA_MEDIA_DIR=/media
       # - MINIDLNA_FRIENDLY_NAME=Медиа
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8200"]
+      test: ["CMD", "curl", "-s", "-f", "localhost:8200"]
       interval: 30s
       timeout: 10s
       retries: 3

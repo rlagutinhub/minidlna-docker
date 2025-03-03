@@ -28,7 +28,7 @@ serial=12345678
 model_number=1
 root_container=B
 EOF
-cat << EOF > docker-compose.yml
+cat << 'EOF' > docker-compose.yml
 x-minidlna-common: &minidlna-common
   image: ${MINIDLNA_IMAGE:-minidlna}:${MINIDLNA_TAG:-latest}
   build:

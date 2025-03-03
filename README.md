@@ -1,4 +1,4 @@
-# minidlna (aka ReadyDLNA or ReadyMedia)
+# MiniDLNA (aka ReadyDLNA or ReadyMedia)
 > Tested for VLC for Android and ViMu Media Player for TV
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna

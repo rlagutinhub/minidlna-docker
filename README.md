@@ -3,7 +3,7 @@
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << 'EOF' > Dockerfile
-ARG ALPINE_TAG=latest
+ARG ALPINE_TAG=3.21.3
 FROM alpine:${ALPINE_TAG}
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
 ARG MINIDLNA_VER=1.3.3-r1
@@ -30,12 +30,12 @@ root_container=B
 EOF
 cat << EOF > docker-compose.yml
 x-minidlna-common: &minidlna-common
-  image: minidlna:latest
+  image: ${MINIDLNA_IMAGE:-minidlna}:${MINIDLNA_TAG:-latest}
   build:
     context: .
     args:
-      ALPINE_TAG: "3.21.3"
-      MINIDLNA_VER: "1.3.3-r1"
+      ALPINE_TAG: "${ALPINE_TAG:-3.21.3}"
+      MINIDLNA_VER: "${MINIDLNA_VER:-1.3.3-r1}"
   pull_policy: never
   network_mode: host
   restart: always
@@ -52,7 +52,9 @@ services:
     volumes:
       - ~/Загрузки:/media
 EOF
-docker compose up -d
+ALPINE_TAG=3.21.3 \
+MINIDLNA_VER=1.3.3-r1 \
+docker-compose up -d
 # docker compose down
 # docker system prune -a
 ```

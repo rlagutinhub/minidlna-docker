@@ -1,10 +1,10 @@
 x-minidlna-common: &minidlna-common
-  image: minidlna:latest
+  image: ${MINIDLNA_IMAGE:-minidlna}:${MINIDLNA_TAG:-latest}
   build:
     context: .
     args:
-      ALPINE_TAG: "3.21.3"
-      MINIDLNA_VER: "1.3.3-r1"
+      ALPINE_TAG: "${ALPINE_TAG:-3.21.3}"
+      MINIDLNA_VER: "${MINIDLNA_VER:-1.3.3-r1}"
   pull_policy: never
   network_mode: host
   restart: always

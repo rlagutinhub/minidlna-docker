@@ -54,8 +54,7 @@ services:
 EOF
 ALPINE_TAG=3.21.3 \
 MINIDLNA_VER=1.3.3-r1 \
-MINIDLNA_TAG= \
-MINIDLNA_TAG=${MINIDLNA_TAG:-$MINIDLNA_VER} \
+MINIDLNA_TAG=$MINIDLNA_VER \
 docker compose up -d
 # docker compose down
 # docker system prune -a

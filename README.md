@@ -3,7 +3,7 @@
 ```bash
 mkdir -p ~/Документы/minidlna && cd ~/Документы/minidlna
 cat << 'EOF' > Dockerfile
-ARG ALPINE_TAG=3.21.3
+ARG ALPINE_TAG=latest
 FROM alpine:${ALPINE_TAG}
 LABEL maintainer="Roman Lagutin <r@lag.net.ru>"
 ARG MINIDLNA_VER=1.3.3-r1
